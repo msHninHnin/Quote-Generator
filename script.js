@@ -36,7 +36,6 @@ async function getQuote() {
     }
     quote.innerText = data.quoteText;
     removeloadingSpinner();
-    throw new error("oops");
   } catch (error) {
     getQuote();
     console.log("No quote", error);
@@ -46,7 +45,7 @@ function tweetQuote() {
   const quoteTweet = quote.innerText;
   const authorTweet = author.innerText;
   const twitterUrl =
-    "https://twitter.com/intent/tweet?text="${quoteTweet}-${author};
+    "https://twitter.com/intent/tweet?text=${quoteTweet}-${author}";
   window.open(twitterUrl, "_blank");
 }
 newQuote.addEventListener("click", getQuote);
